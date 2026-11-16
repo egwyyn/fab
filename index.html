@@ -4,600 +4,575 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FABRICA — Beyond the Ordinary</title>
+<meta name="theme-color" content="#090909">
+<title>Fabrica Coffee Company</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --black:#080808;
-  --white:#f5f5f2;
-  --red:#c52b2b;
-  --gray:#999;
+    --black: #090909;
+    --white: #f4f2ed;
+    --gray: #999994;
+    --red: #b52b27;
 }
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
-  background:var(--white);
-  color:var(--black);
-  font-family:'DM Sans',sans-serif;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
 }
 
 a {
-  color:inherit;
-  text-decoration:none;
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--red);
+    color: white;
 }
 
 /* HEADER */
 
 header {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:85px;
-  padding:0 7%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  z-index:100;
-  color:white;
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 82px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: rgba(9, 9, 9, 0.82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
-  font-family:'Manrope',sans-serif;
-  font-size:32px;
-  font-weight:800;
-  letter-spacing:-3px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
 }
 
-.logo span {color:var(--red);}
+.logo span {
+    color: var(--red);
+}
 
 nav {
-  display:flex;
-  gap:42px;
+    display: flex;
+    align-items: center;
+    gap: 42px;
 }
 
 nav a {
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:2px;
-  transition:.3s;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #aaa;
+    transition: color .3s;
 }
 
 nav a:hover,
 nav a.active {
-  color:var(--red);
+    color: white;
 }
 
-.header-right {
-  font-size:9px;
-  letter-spacing:2px;
-  color:#ccc;
+.header-mark {
+    color: var(--red);
+    font-size: 11px;
+    letter-spacing: 3px;
 }
 
 /* HERO */
 
 .hero {
-  min-height:100vh;
-  height:850px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:#111;
-  color:white;
-}
-
-.hero-bg {
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
-    url("images/hero.jpg") center/cover no-repeat;
-  animation:zoom 18s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-  from {transform:scale(1.02);}
-  to {transform:scale(1.10);}
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 120px 9% 80px;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.25)),
+        linear-gradient(0deg, rgba(0,0,0,.55), transparent 60%),
+        url("images/hero.jpeg") center/cover no-repeat;
 }
 
 .hero-content {
-  position:relative;
-  text-align:center;
-  z-index:2;
-  padding:20px;
+    max-width: 1000px;
+    position: relative;
+    z-index: 2;
 }
 
-.hero-small {
-  font-size:10px;
-  letter-spacing:5px;
-  margin-bottom:30px;
-  color:#ddd;
+.hero-label {
+    color: #ddd;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 28px;
 }
-
-.hero-small span {color:var(--red);}
 
 .hero h1 {
-  font-family:'Manrope',sans-serif;
-  font-size:clamp(75px,17vw,220px);
-  line-height:.85;
-  letter-spacing:-.11em;
-  font-weight:800;
-  padding-right:.11em;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(75px, 15vw, 190px);
+    line-height: .85;
+    font-weight: 800;
+    letter-spacing: -12px;
 }
 
-.hero h1 span {color:var(--red);}
-
-.hero-subtitle {
-  font-size:12px;
-  letter-spacing:7px;
-  margin-top:35px;
-  font-weight:600;
+.hero h1 span {
+    color: var(--red);
 }
 
 .hero-bottom {
-  position:absolute;
-  bottom:45px;
-  left:7%;
-  right:7%;
-  display:flex;
-  justify-content:space-between;
-  font-size:9px;
-  letter-spacing:2px;
-  color:#ccc;
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-.hero-bottom span:first-child:before {
-  content:"";
-  display:inline-block;
-  width:35px;
-  height:1px;
-  background:var(--red);
-  margin:0 14px 3px 0;
+.hero-bottom p {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ddd;
+}
+
+.hero-line {
+    width: 65px;
+    height: 1px;
+    background: var(--red);
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 45px;
+    right: 9%;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #aaa;
+    writing-mode: vertical-rl;
 }
 
 /* INTRO */
 
 .intro {
-  padding:130px 10%;
+    padding: 150px 12%;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 100px;
+    align-items: start;
+    background: var(--white);
+    color: var(--black);
 }
 
 .section-label {
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:3px;
-  color:var(--red);
-}
-
-.intro-content {
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:10%;
-  align-items:end;
-  margin-top:55px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--red);
+    font-weight: 700;
 }
 
 .intro h2 {
-  font-family:'Manrope',sans-serif;
-  font-size:clamp(40px,6vw,82px);
-  line-height:1.05;
-  letter-spacing:-5px;
-  font-weight:700;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(35px, 5vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    font-weight: 600;
+    margin-top: 25px;
 }
 
-.intro h2 em {
-  color:#999;
-  font-style:normal;
+.intro h2 span {
+    color: var(--red);
+}
+
+.intro-text {
+    padding-top: 45px;
+    max-width: 500px;
 }
 
 .intro-text p {
-  font-size:14px;
-  line-height:2;
-  color:#666;
-  margin-bottom:30px;
-}
-
-.text-link {
-  display:inline-block;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:2px;
-  padding-bottom:12px;
-  border-bottom:1px solid #aaa;
-}
-
-.text-link span {
-  color:var(--red);
-  margin-left:20px;
+    font-size: 15px;
+    line-height: 2;
+    color: #555;
 }
 
 /* FEATURE */
 
 .feature {
-  min-height:600px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  background:var(--black);
-  color:white;
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #111;
 }
 
-.feature-photo {
-  background:url("images/feature.jpg") center/cover no-repeat;
-  filter:grayscale(100%);
+.feature-image {
+    min-height: 650px;
+    background: url("images/feature.jpeg") center/cover no-repeat;
 }
 
 .feature-content {
-  padding:90px 12%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
+    padding: 100px 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .feature-content h2 {
-  font-family:'Manrope',sans-serif;
-  font-size:clamp(45px,6vw,80px);
-  line-height:.98;
-  letter-spacing:-5px;
-  margin:55px 0 45px;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin: 25px 0;
 }
 
-.feature-content h2 em {
-  color:#777;
-  font-style:normal;
+.feature-content h2 span {
+    color: var(--red);
 }
 
-.feature-content h2 span {color:var(--red);}
-
-.outline-link {
-  padding:17px 23px;
-  border:1px solid #555;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:2px;
-  transition:.3s;
+.feature-content p {
+    color: #999;
+    line-height: 2;
+    font-size: 14px;
+    max-width: 400px;
 }
-
-.outline-link:hover {border-color:var(--red);}
 
 /* GALLERY */
 
 .gallery {
-  padding:125px 8%;
-  background:#e9e9e5;
+    padding: 130px 7%;
+    background: var(--black);
 }
 
 .gallery-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  margin:45px 0 65px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 65px;
 }
 
 .gallery-heading h2 {
-  font:800 clamp(65px,11vw,140px)/.85 'Manrope',sans-serif;
-  letter-spacing:-.1em;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(50px, 8vw, 100px);
+    letter-spacing: -6px;
+    line-height: .9;
 }
 
-.gallery-heading h2 span {color:var(--red);}
+.gallery-heading h2 span {
+    color: var(--red);
+}
 
 .gallery-heading p {
-  font-size:12px;
-  line-height:1.8;
-  color:#777;
-  margin-bottom:8px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gray);
 }
 
 .gallery-grid {
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:20px;
-  align-items:start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
 
 .gallery-item {
-  position:relative;
-  border:0;
-  padding:0;
-  background:#ccc;
-  overflow:hidden;
-  cursor:pointer;
-  aspect-ratio:1.2/1;
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    background: #181818;
+    cursor: pointer;
+    aspect-ratio: 4 / 5;
 }
 
-.gallery-item.tall {
-  grid-row:span 2;
-  aspect-ratio:.78/1;
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(5) {
+    aspect-ratio: 4 / 5;
+    transform: translateY(35px);
+}
+
+.gallery-item:nth-child(4) {
+    aspect-ratio: 4 / 5;
 }
 
 .gallery-item img {
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  filter:grayscale(100%);
-  transition:.6s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(35%);
+    transition: transform .7s, filter .7s;
 }
 
 .gallery-item:hover img {
-  transform:scale(1.05);
-  filter:grayscale(35%);
-}
-
-.photo-label {
-  position:absolute;
-  bottom:18px;
-  left:18px;
-  color:white;
-  font-size:9px;
-  letter-spacing:2px;
-  text-shadow:0 1px 8px black;
-}
-
-.gallery-footer {
-  display:flex;
-  justify-content:space-between;
-  border-top:1px solid #ccc;
-  margin-top:60px;
-  padding-top:20px;
-  font-size:9px;
-  letter-spacing:2px;
-  color:#777;
-}
-
-/* LIGHTBOX */
-
-.lightbox {
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:200;
-  background:rgba(0,0,0,.95);
-  align-items:center;
-  justify-content:center;
-  padding:5%;
-}
-
-.lightbox.open {display:flex;}
-
-.lightbox img {
-  max-width:90%;
-  max-height:85vh;
-  object-fit:contain;
-}
-
-.lightbox-close {
-  position:absolute;
-  top:20px;
-  right:35px;
-  border:0;
-  background:none;
-  color:white;
-  font-size:45px;
-  cursor:pointer;
+    transform: scale(1.06);
+    filter: grayscale(0%);
 }
 
 /* CONTACT */
 
 .contact {
-  background:#080808;
-  color:white;
-  padding:125px 10% 100px;
+    padding: 130px 9%;
+    background: var(--white);
+    color: var(--black);
 }
 
-.contact-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  padding-bottom:75px;
-  border-bottom:1px solid #333;
+.contact-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 85px;
 }
 
-.contact-heading h2 {
-  font:800 clamp(65px,11vw,140px)/.85 'Manrope',sans-serif;
-  letter-spacing:-.1em;
+.contact h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(55px, 9vw, 115px);
+    letter-spacing: -7px;
+    line-height: .9;
+    margin-top: 25px;
 }
 
-.contact-heading h2 em {
-  font-style:normal;
-  color:#777;
+.contact h2 span {
+    color: var(--red);
 }
 
-.contact-heading h2 span {color:var(--red);}
-
-.contact-heading p {
-  color:#999;
-  font-size:12px;
-  line-height:1.8;
-  margin-bottom:8px;
+.contact-top p {
+    max-width: 260px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #666;
 }
 
-.contact-content {
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:12%;
-  padding:70px 0;
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    border-top: 1px solid #ccc;
+    padding-top: 35px;
 }
 
-.contact-message {
-  font:800 clamp(35px,5vw,65px)/1 'Manrope',sans-serif;
-  letter-spacing:-4px;
+.contact-item small {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--red);
+    font-weight: 700;
 }
 
-.contact-message em {
-  color:#777;
-  font-style:normal;
+.contact-item p,
+.contact-item a {
+    display: block;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #333;
 }
 
-.contact-message span {color:var(--red);}
-
-.contact-details {
-  border-top:1px solid #333;
-}
-
-.contact-row {
-  display:grid;
-  grid-template-columns:120px 1fr;
-  gap:20px;
-  padding:27px 0;
-  border-bottom:1px solid #333;
-}
-
-.contact-label {
-  color:var(--red);
-  font-size:9px;
-  letter-spacing:2px;
-}
-
-.contact-row h3 {
-  font:700 23px 'Manrope',sans-serif;
-  margin-bottom:12px;
-}
-
-.contact-row p,
-.contact-row a {
-  color:#aaa;
-  font-size:12px;
-  line-height:1.9;
-}
-
-.contact-row a:hover {color:white;}
-
-.contact-bottom {
-  display:flex;
-  justify-content:space-between;
-  border-top:1px solid #333;
-  padding-top:25px;
-  color:#888;
-  font-size:9px;
-  letter-spacing:2px;
+.contact-item a:hover {
+    color: var(--red);
 }
 
 /* FOOTER */
 
 footer {
-  background:#050505;
-  color:white;
-  min-height:120px;
-  padding:35px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    padding: 35px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: var(--black);
+}
+
+footer p {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
 }
 
 .footer-logo {
-  font:800 25px 'Manrope',sans-serif;
-  letter-spacing:-2px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -1px;
 }
 
-.footer-logo span {color:var(--red);}
-
-footer p {
-  font-size:9px;
-  letter-spacing:2px;
-  color:#888;
+.footer-logo span {
+    color: var(--red);
 }
 
-/* MOBILE */
+/* LIGHTBOX */
 
-@media(max-width:768px) {
-  header {
-    height:75px;
-    padding:0 6%;
-  }
-
-  .logo {font-size:27px;}
-  nav {gap:17px;}
-  nav a {font-size:8px;letter-spacing:1px;}
-  .header-right {display:none;}
-
-  .hero {height:90vh;min-height:600px;}
-  .hero h1 {font-size:clamp(65px,18vw,130px);}
-  .hero-subtitle {font-size:9px;letter-spacing:4px;}
-  .hero-small {font-size:8px;letter-spacing:3px;}
-
-  .hero-bottom {
-    left:6%;
-    right:6%;
-    bottom:30px;
-    font-size:7px;
-  }
-
-  .intro {padding:85px 7%;}
-  .intro-content {
-    grid-template-columns:1fr;
-    gap:35px;
-    margin-top:35px;
-  }
-
-  .intro h2 {font-size:53px;letter-spacing:-3px;}
-
-  .feature {grid-template-columns:1fr;}
-  .feature-photo {min-height:330px;}
-  .feature-content {padding:65px 8%;}
-  .feature-content h2 {font-size:58px;margin:40px 0;}
-
-  .gallery {padding:85px 6%;}
-  .gallery-heading {
-    display:block;
-    margin:35px 0 40px;
-  }
-  .gallery-heading p {margin-top:25px;}
-  .gallery-grid {gap:10px;}
-  .gallery-item.tall {aspect-ratio:.75/1;}
-  .gallery-item {aspect-ratio:1/1;}
-  .gallery-footer {font-size:7px;}
-
-  .contact {padding:85px 7% 65px;}
-  .contact-heading {
-    display:block;
-    padding-bottom:45px;
-  }
-  .contact-heading p {margin-top:25px;}
-  .contact-content {
-    grid-template-columns:1fr;
-    gap:45px;
-    padding:45px 0;
-  }
-  .contact-message {font-size:52px;}
-  .contact-row {
-    grid-template-columns:85px 1fr;
-    gap:10px;
-  }
-  .contact-bottom {
-    flex-wrap:wrap;
-    gap:15px;
-    font-size:7px;
-  }
-
-  footer {
-    padding:30px 6%;
-    flex-wrap:wrap;
-    gap:20px;
-  }
-  footer p {font-size:7px;}
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,.95);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 
-@media(max-width:400px) {
-  nav {gap:12px;}
-  nav a {font-size:7px;}
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    header {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    nav a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .header-mark {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 7%;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        letter-spacing: -6px;
+    }
+
+    .intro {
+        padding: 90px 8%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .intro-text {
+        padding-top: 10px;
+    }
+
+    .feature {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-image {
+        min-height: 450px;
+    }
+
+    .feature-content {
+        padding: 75px 8%;
+    }
+
+    .gallery {
+        padding: 90px 5%;
+    }
+
+    .gallery-heading {
+        display: block;
+    }
+
+    .gallery-heading p {
+        margin-top: 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(5) {
+        transform: none;
+    }
+
+    .contact {
+        padding: 90px 8%;
+    }
+
+    .contact-top {
+        display: block;
+        margin-bottom: 60px;
+    }
+
+    .contact-top p {
+        margin-top: 30px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 8px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-item {
+        aspect-ratio: 3 / 4;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 </head>
@@ -605,249 +580,217 @@ footer p {
 <body>
 
 <header>
-  <a href="#home" class="logo">F<span>.</span></a>
+    <a href="#home" class="logo">FABRICA<span>.</span></a>
 
-  <nav>
-    <a href="#home" class="active">HOME</a>
-    <a href="#gallery">GALLERY</a>
-    <a href="#contact">CONTACT</a>
-  </nav>
+    <nav>
+        <a href="#home" class="active">HOME</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
 
-  <div class="header-right">COFFEE · PEOPLE · MOMENTS</div>
+    <div class="header-mark">COFFEE COMPANY</div>
 </header>
 
 <main>
 
-<!-- HOME -->
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-label">COFFEE · PEOPLE · MOMENTS</div>
 
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
+            <h1>FABRICA<span>.</span></h1>
 
-  <div class="hero-content">
-    <div class="hero-small">
-      <span>●</span> INDEPENDENT COFFEE CULTURE
-    </div>
-
-    <h1>FABRICA<span>.</span></h1>
-
-    <div class="hero-subtitle">BEYOND THE ORDINARY.</div>
-  </div>
-
-  <div class="hero-bottom">
-    <span>SCROLL TO EXPLORE</span>
-    <span>SÖKE · AYDIN</span>
-  </div>
-</section>
-
-<section class="intro">
-  <div class="section-label">01 — THE FABRICA EXPERIENCE</div>
-
-  <div class="intro-content">
-    <h2>
-      Not just a place.<br>
-      <em>A state of mind.</em>
-    </h2>
-
-    <div class="intro-text">
-      <p>
-        Good coffee. Thoughtful details.
-        A space to pause, connect and
-        experience the everyday differently.
-      </p>
-
-      <a href="#gallery" class="text-link">
-        EXPLORE THE GALLERY <span>↗</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="feature">
-  <div class="feature-photo"></div>
-
-  <div class="feature-content">
-    <div class="section-label">02 — A DIFFERENT PERSPECTIVE</div>
-
-    <h2>
-      MAKE ROOM<br>
-      FOR <em>GOOD</em><br>
-      THINGS<span>.</span>
-    </h2>
-
-    <a href="#contact" class="outline-link">FIND FABRICA ↗</a>
-  </div>
-</section>
-
-<!-- GALLERY -->
-
-<section class="gallery" id="gallery">
-
-  <div class="section-label">03 — A LOOK INSIDE</div>
-
-  <div class="gallery-heading">
-    <h2>THE<br>GALLERY<span>.</span></h2>
-    <p>
-      Spaces, details and moments.<br>
-      A little glimpse into Fabrica.
-    </p>
-  </div>
-
-  <div class="gallery-grid">
-
-    <button class="gallery-item tall" onclick="openPhoto(this)">
-      <img src="images/gallery-01.jpg" alt="Fabrica interior">
-      <span class="photo-label">01 / SPACE</span>
-    </button>
-
-    <button class="gallery-item" onclick="openPhoto(this)">
-      <img src="images/gallery-02.jpg" alt="Coffee preparation">
-      <span class="photo-label">02 / CRAFT</span>
-    </button>
-
-    <button class="gallery-item" onclick="openPhoto(this)">
-      <img src="images/gallery-03.jpg" alt="Coffee detail">
-      <span class="photo-label">03 / COFFEE</span>
-    </button>
-
-    <button class="gallery-item" onclick="openPhoto(this)">
-      <img src="images/gallery-04.jpg" alt="Cafe details">
-      <span class="photo-label">04 / DETAILS</span>
-    </button>
-
-    <button class="gallery-item" onclick="openPhoto(this)">
-      <img src="images/gallery-05.jpg" alt="Cafe atmosphere">
-      <span class="photo-label">05 / PEOPLE</span>
-    </button>
-
-    <button class="gallery-item" onclick="openPhoto(this)">
-      <img src="images/gallery-06.jpg" alt="Coffee moments">
-      <span class="photo-label">06 / MOMENTS</span>
-    </button>
-
-  </div>
-
-  <div class="gallery-footer">
-    <span>THE FABRICA EXPERIENCE</span>
-    <span>SCROLL, LOOK, FEEL.</span>
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-  <div class="section-label">04 — COME SAY HELLO</div>
-
-  <div class="contact-heading">
-    <h2>LET'S<br><em>CONNECT</em><span>.</span></h2>
-
-    <p>
-      Good conversations start<br>
-      with a good place.
-    </p>
-  </div>
-
-  <div class="contact-content">
-
-    <div class="contact-message">
-      YOUR TABLE<br>
-      IS <em>WAITING</em><span>.</span>
-    </div>
-
-    <div class="contact-details">
-
-      <div class="contact-row">
-        <div class="contact-label">01 / VISIT</div>
-        <div>
-          <h3>Find us.</h3>
-          <p>Fabrica Coffee Company</p>
-          <p>Adres bilgisini buraya ekle.</p>
+            <div class="hero-bottom">
+                <div class="hero-line"></div>
+                <p>BEYOND THE ORDINARY.</p>
+            </div>
         </div>
-      </div>
 
-      <div class="contact-row">
-        <div class="contact-label">02 / FOLLOW</div>
+        <div class="hero-scroll">SCROLL TO EXPLORE</div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
         <div>
-          <h3>Stay in touch.</h3>
-          <p>
-            <a href="#" target="_blank">Instagram ↗</a>
-          </p>
-          <p>Instagram bağlantısını güncelle.</p>
+            <div class="section-label">01 / THE EXPERIENCE</div>
+            <h2>ANOTHER WAY TO <span>EXPERIENCE</span> COFFEE.</h2>
         </div>
-      </div>
 
-      <div class="contact-row">
-        <div class="contact-label">03 / HOURS</div>
-        <div>
-          <h3>When we're here.</h3>
-          <p>Güncel çalışma saatlerini buraya ekle.</p>
+        <div class="intro-text">
+            <p>
+                Fabrica is where coffee, design and everyday life come together.
+                A space shaped by details, conversations and moments worth
+                experiencing. Discover your own rhythm at Fabrica.
+            </p>
         </div>
-      </div>
+    </section>
 
-    </div>
-  </div>
+    <!-- FEATURE -->
+    <section class="feature">
+        <div class="feature-image"></div>
 
-  <div class="contact-bottom">
-    <span>FABRICA COFFEE COMPANY</span>
-    <span>SÖKE · AYDIN</span>
-    <span>BEYOND THE ORDINARY.</span>
-  </div>
+        <div class="feature-content">
+            <div class="section-label">02 / OUR PHILOSOPHY</div>
 
-</section>
+            <h2>MADE FOR<br><span>THE MOMENT.</span></h2>
+
+            <p>
+                Every detail matters. From the atmosphere to the smallest
+                elements, Fabrica is designed to make ordinary moments
+                feel different.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-heading">
+            <div>
+                <div class="section-label">03 / VISUAL DIARY</div>
+                <h2>THE <span>GALLERY.</span></h2>
+            </div>
+
+            <p>A CLOSER LOOK AT FABRICA.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-01.jpeg" alt="Fabrica Coffee 1">
+            </button>
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-02.jpeg" alt="Fabrica Coffee 2">
+            </button>
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-03.jpeg" alt="Fabrica Coffee 3">
+            </button>
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-04.jpeg" alt="Fabrica Coffee 4">
+            </button>
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-05.jpeg" alt="Fabrica Coffee 5">
+            </button>
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-06.jpeg" alt="Fabrica Coffee 6">
+            </button>
+
+            <button class="gallery-item" type="button">
+                <img src="images/gallery-07.jpeg" alt="Fabrica Coffee 7">
+            </button>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-top">
+            <div>
+                <div class="section-label">04 / GET IN TOUCH</div>
+                <h2>LET'S <span>CONNECT.</span></h2>
+            </div>
+
+            <p>
+                Find us, follow us or simply come by.
+                We'd love to see you at Fabrica.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-item">
+                <small>LOCATION</small>
+                <p>Adres bilgisini buraya ekle.</p>
+            </div>
+
+            <div class="contact-item">
+                <small>INSTAGRAM</small>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    Instagram bağlantısını güncelle.
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <small>OPENING HOURS</small>
+                <p>Güncel çalışma saatlerini buraya ekle.</p>
+            </div>
+
+        </div>
+    </section>
 
 </main>
 
 <footer>
-  <a href="#home" class="footer-logo">FABRICA<span>.</span></a>
-  <p>BEYOND THE ORDINARY.</p>
-  <p>© FABRICA COFFEE COMPANY</p>
+    <div class="footer-logo">FABRICA<span>.</span></div>
+
+    <p>BEYOND THE ORDINARY.</p>
+
+    <p>© 2026 FABRICA COFFEE COMPANY</p>
 </footer>
 
-<!-- PHOTO LIGHTBOX -->
-
-<div class="lightbox" id="lightbox" onclick="closePhoto(event)">
-  <button class="lightbox-close" onclick="closePhoto(event)">×</button>
-  <img id="lightbox-image" src="" alt="Gallery image">
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="Fabrica Gallery Image" id="lightbox-image">
 </div>
 
 <script>
-function openPhoto(button) {
-  const image = button.querySelector("img");
-  document.getElementById("lightbox-image").src = image.src;
-  document.getElementById("lightbox").classList.add("open");
-}
+// Gallery lightbox
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.querySelector('.lightbox-close');
 
-function closePhoto(event) {
-  if (
-    event.target.id === "lightbox" ||
-    event.target.classList.contains("lightbox-close")
-  ) {
-    document.getElementById("lightbox").classList.remove("open");
-  }
-}
-
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
-    document.getElementById("lightbox").classList.remove("open");
-  }
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const image = item.querySelector('img');
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.classList.add('open');
+    });
 });
 
-const sections = document.querySelectorAll("#home, #gallery, #contact");
-const navLinks = document.querySelectorAll("nav a");
+function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImage.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// Active navigation
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('nav a');
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") === "#" + entry.target.id
-        );
-      });
-    }
-  });
-}, { threshold: 0.35 });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === '#' + entry.target.id
+                );
+            });
+        }
+    });
+}, {
+    threshold: 0.35
+});
 
 sections.forEach(section => observer.observe(section));
 </script>
