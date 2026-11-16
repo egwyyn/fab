@@ -2,209 +2,502 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fabrica Coffee Company">
-  <title>Fabrica Coffee Company</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FABRICA — Beyond the Ordinary</title>
+<meta name="description" content="Fabrica Coffee Company. Beyond the Ordinary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body {
-      background:#f5f4f0;
-      color:#111;
-      font-family:'Manrope',sans-serif;
-    }
-    a { text-decoration:none; color:inherit; }
+<style>
+:root {
+  --black:#080808;
+  --white:#f5f5f2;
+  --red:#c52b2b;
+  --gray:#999;
+}
 
-    header {
-      height:90px;
-      padding:0 7%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:#f5f4f0;
-    }
-    .logo {
-      font-size:27px;
-      font-weight:800;
-      letter-spacing:-2px;
-    }
-    .logo span { color:#a52b2b; }
-    .logo small {
-      display:block;
-      font-size:8px;
-      letter-spacing:3px;
-      font-weight:600;
-    }
-    nav { display:flex; gap:40px; }
-    nav a {
-      font-size:12px;
-      color:#555;
-      transition:.3s;
-    }
-    nav a:hover { color:#a52b2b; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .hero {
-      min-height:calc(100vh - 90px);
-      position:relative;
-      display:flex;
-      align-items:center;
-      padding:0 11%;
-      color:white;
-      background:
-        linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.65)),
-        url('images/hero.jpg') center/cover no-repeat;
-    }
-    .hero-content { max-width:800px; }
-    .eyebrow {
-      font-size:10px;
-      letter-spacing:5px;
-      color:#c4c4c4;
-      margin-bottom:30px;
-    }
-    h1 {
-      font-size:clamp(65px,10vw,130px);
-      line-height:.95;
-      letter-spacing:-8px;
-      font-weight:800;
-    }
-    h1 span { font-weight:400; }
-    .slogan {
-      margin-top:32px;
-      font-size:13px;
-      letter-spacing:5px;
-      color:#ddd;
-    }
-    .discover {
-      display:inline-block;
-      margin-top:55px;
-      padding-bottom:10px;
-      border-bottom:1px solid #aaa;
-      font-size:11px;
-      letter-spacing:2px;
-      transition:.3s;
-    }
-    .discover:hover {
-      color:#ccc;
-      border-color:#a52b2b;
-    }
+html { scroll-behavior:smooth; }
 
-    .intro {
-      padding:120px 11%;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:80px;
-      align-items:center;
-    }
-    .intro h2 {
-      font-size:42px;
-      letter-spacing:-2px;
-      line-height:1.15;
-    }
-    .intro p {
-      color:#777;
-      font-size:14px;
-      line-height:2;
-    }
-    .intro .number {
-      color:#a52b2b;
-      font-size:11px;
-      letter-spacing:3px;
-      margin-bottom:20px;
-    }
+body {
+  background:var(--white);
+  color:var(--black);
+  font-family:'DM Sans',sans-serif;
+}
 
-    footer {
-      padding:45px 7%;
-      background:#111;
-      color:#aaa;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:10px;
-      letter-spacing:1px;
-    }
-    footer strong { color:white; font-size:18px; }
+a {
+  color:inherit;
+  text-decoration:none;
+}
 
-    @media(max-width:700px) {
-      header { height:75px; padding:0 6%; }
-      nav { gap:16px; }
-      nav a { font-size:10px; }
-      .logo { font-size:22px; }
-      .hero {
-        min-height:calc(100svh - 75px);
-        padding:0 7%;
-      }
-      h1 { font-size:65px; letter-spacing:-5px; }
-      .slogan { font-size:10px; letter-spacing:3px; }
-      .intro {
-        padding:80px 7%;
-        grid-template-columns:1fr;
-        gap:30px;
-      }
-      .intro h2 { font-size:34px; }
-      footer { gap:20px; flex-wrap:wrap; }
-    }
-  </style>
+/* HEADER */
+
+header {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:95px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:10;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.logo {
+  font-family:'Manrope',sans-serif;
+  font-size:32px;
+  font-weight:800;
+  letter-spacing:-3px;
+}
+
+.logo span { color:var(--red); }
+
+nav {
+  display:flex;
+  gap:42px;
+}
+
+nav a {
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+nav a:hover { color:var(--red); }
+
+.header-right {
+  font-size:9px;
+  letter-spacing:2px;
+  color:#ccc;
+}
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  height:850px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#111;
+  color:white;
+}
+
+.hero-bg {
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      rgba(0,0,0,.58),
+      rgba(0,0,0,.58)
+    ),
+    url("images/hero.jpg") center/cover no-repeat;
+  transform:scale(1.02);
+  animation:zoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes zoom {
+  from { transform:scale(1.02); }
+  to { transform:scale(1.10); }
+}
+
+.hero-content {
+  position:relative;
+  text-align:center;
+  z-index:2;
+  padding:20px;
+}
+
+.hero-small {
+  font-size:10px;
+  letter-spacing:5px;
+  margin-bottom:30px;
+  color:#ddd;
+}
+
+.hero-small span {
+  color:var(--red);
+}
+
+.hero h1 {
+  font-family:'Manrope',sans-serif;
+  font-size:clamp(75px,17vw,220px);
+  line-height:.85;
+  letter-spacing:-.11em;
+  font-weight:800;
+  padding-right:.11em;
+}
+
+.hero h1 span { color:var(--red); }
+
+.hero-subtitle {
+  font-size:12px;
+  letter-spacing:7px;
+  margin-top:35px;
+  font-weight:600;
+}
+
+.hero-bottom {
+  position:absolute;
+  bottom:45px;
+  left:7%;
+  right:7%;
+  display:flex;
+  justify-content:space-between;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#ccc;
+}
+
+.hero-bottom span:first-child:before {
+  content:"";
+  display:inline-block;
+  width:35px;
+  height:1px;
+  background:var(--red);
+  margin:0 14px 3px 0;
+}
+
+/* INTRO */
+
+.intro {
+  padding:130px 10%;
+}
+
+.section-label {
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:3px;
+  color:var(--red);
+}
+
+.intro-content {
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:10%;
+  align-items:end;
+  margin-top:55px;
+}
+
+.intro h2 {
+  font-family:'Manrope',sans-serif;
+  font-size:clamp(40px,6vw,82px);
+  line-height:1.05;
+  letter-spacing:-5px;
+  font-weight:700;
+}
+
+.intro h2 em {
+  color:#999;
+  font-style:normal;
+}
+
+.intro-text p {
+  font-size:14px;
+  line-height:2;
+  color:#666;
+  margin-bottom:30px;
+}
+
+.text-link {
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  padding-bottom:12px;
+  border-bottom:1px solid #aaa;
+}
+
+.text-link span {
+  color:var(--red);
+  margin-left:20px;
+}
+
+/* FEATURE */
+
+.feature {
+  min-height:600px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--black);
+  color:white;
+}
+
+.feature-photo {
+  background:
+    linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)),
+    url("images/feature.jpg") center/cover no-repeat;
+  filter:grayscale(100%);
+}
+
+.feature-content {
+  padding:90px 12%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.feature-content h2 {
+  font-family:'Manrope',sans-serif;
+  font-size:clamp(45px,6vw,80px);
+  line-height:.98;
+  letter-spacing:-5px;
+  margin:55px 0 45px;
+}
+
+.feature-content h2 em {
+  color:#777;
+  font-style:normal;
+}
+
+.feature-content h2 span { color:var(--red); }
+
+.outline-link {
+  padding:17px 23px;
+  border:1px solid #555;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.outline-link:hover {
+  border-color:var(--red);
+}
+
+/* FOOTER */
+
+footer {
+  background:#080808;
+  color:white;
+  min-height:120px;
+  padding:35px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.footer-logo {
+  font-family:'Manrope',sans-serif;
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-2px;
+}
+
+.footer-logo span { color:var(--red); }
+
+footer p {
+  font-size:9px;
+  letter-spacing:2px;
+  color:#888;
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
+
+  header {
+    height:75px;
+    padding:0 6%;
+  }
+
+  .logo { font-size:27px; }
+
+  nav { gap:17px; }
+
+  nav a {
+    font-size:8px;
+    letter-spacing:1px;
+  }
+
+  .header-right { display:none; }
+
+  .hero {
+    height:90vh;
+    min-height:600px;
+  }
+
+  .hero h1 {
+    font-size:clamp(65px,18vw,130px);
+  }
+
+  .hero-subtitle {
+    font-size:9px;
+    letter-spacing:4px;
+  }
+
+  .hero-small {
+    font-size:8px;
+    letter-spacing:3px;
+  }
+
+  .hero-bottom {
+    left:6%;
+    right:6%;
+    bottom:30px;
+    font-size:7px;
+  }
+
+  .intro { padding:85px 7%; }
+
+  .intro-content {
+    grid-template-columns:1fr;
+    gap:35px;
+    margin-top:35px;
+  }
+
+  .intro h2 {
+    font-size:53px;
+    letter-spacing:-3px;
+  }
+
+  .feature { grid-template-columns:1fr; }
+
+  .feature-photo { min-height:330px; }
+
+  .feature-content { padding:65px 8%; }
+
+  .feature-content h2 {
+    font-size:58px;
+    margin:40px 0;
+  }
+
+  footer {
+    padding:30px 6%;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+
+  footer p { font-size:7px; }
+}
+
+@media(max-width:400px) {
+  nav { gap:12px; }
+  nav a { font-size:7px; }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="index.html" class="logo">
-    FABRICA<span>.</span>
-    <small>COFFEE COMPANY</small>
-  </a>
+  <a href="index.html" class="logo">F<span>.</span></a>
 
   <nav>
     <a href="index.html">HOME</a>
     <a href="gallery.html">GALLERY</a>
     <a href="contact.html">CONTACT</a>
   </nav>
+
+  <div class="header-right">COFFEE · PEOPLE · MOMENTS</div>
 </header>
 
 <main>
+
   <section class="hero">
+
+    <div class="hero-bg"></div>
+
     <div class="hero-content">
-      <p class="eyebrow">COFFEE · PEOPLE · MOMENTS</p>
+      <div class="hero-small">
+        <span>●</span> INDEPENDENT COFFEE CULTURE
+      </div>
 
-      <h1>
-        FABRICA<span>.</span>
-      </h1>
+      <h1>FABRICA<span>.</span></h1>
 
-      <p class="slogan">BEYOND THE ORDINARY.</p>
-
-      <a href="gallery.html" class="discover">
-        DISCOVER FABRICA &nbsp; ↗
-      </a>
+      <div class="hero-subtitle">
+        BEYOND THE ORDINARY.
+      </div>
     </div>
+
+    <div class="hero-bottom">
+      <span>SCROLL TO EXPLORE</span>
+      <span>SÖKE · AYDIN</span>
+    </div>
+
   </section>
 
   <section class="intro">
-    <div>
-      <p class="number">01 — THE EXPERIENCE</p>
-      <h2>A place to enjoy<br>the little things.</h2>
+
+    <div class="section-label">
+      01 — THE FABRICA EXPERIENCE
     </div>
 
-    <p>
-      Good coffee, thoughtful details and moments worth sharing.
-      Discover the atmosphere of Fabrica Coffee Company.
-    </p>
+    <div class="intro-content">
+
+      <h2>
+        Not just a place.<br>
+        <em>A state of mind.</em>
+      </h2>
+
+      <div class="intro-text">
+        <p>
+          Good coffee. Thoughtful details.
+          A space to pause, connect and
+          experience the everyday differently.
+        </p>
+
+        <a href="gallery.html" class="text-link">
+          EXPLORE THE GALLERY <span>↗</span>
+        </a>
+      </div>
+
+    </div>
+
   </section>
+
+  <section class="feature">
+
+    <div class="feature-photo"></div>
+
+    <div class="feature-content">
+
+      <div class="section-label">
+        02 — A DIFFERENT PERSPECTIVE
+      </div>
+
+      <h2>
+        MAKE ROOM<br>
+        FOR <em>GOOD</em><br>
+        THINGS<span>.</span>
+      </h2>
+
+      <a href="contact.html" class="outline-link">
+        FIND FABRICA ↗
+      </a>
+
+    </div>
+
+  </section>
+
 </main>
 
 <footer>
-  <strong>FABRICA.</strong>
-  <span>BEYOND THE ORDINARY.</span>
-  <span>© <span id="year"></span> FABRICA COFFEE COMPANY</span>
-</footer>
 
-<script>
-  document.getElementById('year').textContent =
-    new Date().getFullYear();
-</script>
+  <a href="index.html" class="footer-logo">
+    FABRICA<span>.</span>
+  </a>
+
+  <p>BEYOND THE ORDINARY.</p>
+
+  <p>© FABRICA COFFEE COMPANY</p>
+
+</footer>
 
 </body>
 </html>
