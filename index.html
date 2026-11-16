@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FABRICA — Beyond the Ordinary</title>
-<meta name="description" content="Fabrica Coffee Company. Beyond the Ordinary.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +23,10 @@
   box-sizing:border-box;
 }
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
 
 body {
   background:var(--white);
@@ -40,18 +42,20 @@ a {
 /* HEADER */
 
 header {
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   width:100%;
-  height:95px;
+  height:85px;
   padding:0 7%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  z-index:10;
+  z-index:100;
   color:white;
-  border-bottom:1px solid rgba(255,255,255,.2);
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.15);
 }
 
 .logo {
@@ -61,7 +65,7 @@ header {
   letter-spacing:-3px;
 }
 
-.logo span { color:var(--red); }
+.logo span {color:var(--red);}
 
 nav {
   display:flex;
@@ -75,7 +79,10 @@ nav a {
   transition:.3s;
 }
 
-nav a:hover { color:var(--red); }
+nav a:hover,
+nav a.active {
+  color:var(--red);
+}
 
 .header-right {
   font-size:9px;
@@ -101,18 +108,14 @@ nav a:hover { color:var(--red); }
   position:absolute;
   inset:0;
   background:
-    linear-gradient(
-      rgba(0,0,0,.58),
-      rgba(0,0,0,.58)
-    ),
+    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
     url("images/hero.jpg") center/cover no-repeat;
-  transform:scale(1.02);
   animation:zoom 18s ease-in-out infinite alternate;
 }
 
 @keyframes zoom {
-  from { transform:scale(1.02); }
-  to { transform:scale(1.10); }
+  from {transform:scale(1.02);}
+  to {transform:scale(1.10);}
 }
 
 .hero-content {
@@ -129,9 +132,7 @@ nav a:hover { color:var(--red); }
   color:#ddd;
 }
 
-.hero-small span {
-  color:var(--red);
-}
+.hero-small span {color:var(--red);}
 
 .hero h1 {
   font-family:'Manrope',sans-serif;
@@ -142,7 +143,7 @@ nav a:hover { color:var(--red); }
   padding-right:.11em;
 }
 
-.hero h1 span { color:var(--red); }
+.hero h1 span {color:var(--red);}
 
 .hero-subtitle {
   font-size:12px;
@@ -238,9 +239,7 @@ nav a:hover { color:var(--red); }
 }
 
 .feature-photo {
-  background:
-    linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)),
-    url("images/feature.jpg") center/cover no-repeat;
+  background:url("images/feature.jpg") center/cover no-repeat;
   filter:grayscale(100%);
 }
 
@@ -265,7 +264,7 @@ nav a:hover { color:var(--red); }
   font-style:normal;
 }
 
-.feature-content h2 span { color:var(--red); }
+.feature-content h2 span {color:var(--red);}
 
 .outline-link {
   padding:17px 23px;
@@ -276,14 +275,225 @@ nav a:hover { color:var(--red); }
   transition:.3s;
 }
 
-.outline-link:hover {
-  border-color:var(--red);
+.outline-link:hover {border-color:var(--red);}
+
+/* GALLERY */
+
+.gallery {
+  padding:125px 8%;
+  background:#e9e9e5;
+}
+
+.gallery-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin:45px 0 65px;
+}
+
+.gallery-heading h2 {
+  font:800 clamp(65px,11vw,140px)/.85 'Manrope',sans-serif;
+  letter-spacing:-.1em;
+}
+
+.gallery-heading h2 span {color:var(--red);}
+
+.gallery-heading p {
+  font-size:12px;
+  line-height:1.8;
+  color:#777;
+  margin-bottom:8px;
+}
+
+.gallery-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:20px;
+  align-items:start;
+}
+
+.gallery-item {
+  position:relative;
+  border:0;
+  padding:0;
+  background:#ccc;
+  overflow:hidden;
+  cursor:pointer;
+  aspect-ratio:1.2/1;
+}
+
+.gallery-item.tall {
+  grid-row:span 2;
+  aspect-ratio:.78/1;
+}
+
+.gallery-item img {
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:grayscale(100%);
+  transition:.6s;
+}
+
+.gallery-item:hover img {
+  transform:scale(1.05);
+  filter:grayscale(35%);
+}
+
+.photo-label {
+  position:absolute;
+  bottom:18px;
+  left:18px;
+  color:white;
+  font-size:9px;
+  letter-spacing:2px;
+  text-shadow:0 1px 8px black;
+}
+
+.gallery-footer {
+  display:flex;
+  justify-content:space-between;
+  border-top:1px solid #ccc;
+  margin-top:60px;
+  padding-top:20px;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#777;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(0,0,0,.95);
+  align-items:center;
+  justify-content:center;
+  padding:5%;
+}
+
+.lightbox.open {display:flex;}
+
+.lightbox img {
+  max-width:90%;
+  max-height:85vh;
+  object-fit:contain;
+}
+
+.lightbox-close {
+  position:absolute;
+  top:20px;
+  right:35px;
+  border:0;
+  background:none;
+  color:white;
+  font-size:45px;
+  cursor:pointer;
+}
+
+/* CONTACT */
+
+.contact {
+  background:#080808;
+  color:white;
+  padding:125px 10% 100px;
+}
+
+.contact-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding-bottom:75px;
+  border-bottom:1px solid #333;
+}
+
+.contact-heading h2 {
+  font:800 clamp(65px,11vw,140px)/.85 'Manrope',sans-serif;
+  letter-spacing:-.1em;
+}
+
+.contact-heading h2 em {
+  font-style:normal;
+  color:#777;
+}
+
+.contact-heading h2 span {color:var(--red);}
+
+.contact-heading p {
+  color:#999;
+  font-size:12px;
+  line-height:1.8;
+  margin-bottom:8px;
+}
+
+.contact-content {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:12%;
+  padding:70px 0;
+}
+
+.contact-message {
+  font:800 clamp(35px,5vw,65px)/1 'Manrope',sans-serif;
+  letter-spacing:-4px;
+}
+
+.contact-message em {
+  color:#777;
+  font-style:normal;
+}
+
+.contact-message span {color:var(--red);}
+
+.contact-details {
+  border-top:1px solid #333;
+}
+
+.contact-row {
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:20px;
+  padding:27px 0;
+  border-bottom:1px solid #333;
+}
+
+.contact-label {
+  color:var(--red);
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.contact-row h3 {
+  font:700 23px 'Manrope',sans-serif;
+  margin-bottom:12px;
+}
+
+.contact-row p,
+.contact-row a {
+  color:#aaa;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.contact-row a:hover {color:white;}
+
+.contact-bottom {
+  display:flex;
+  justify-content:space-between;
+  border-top:1px solid #333;
+  padding-top:25px;
+  color:#888;
+  font-size:9px;
+  letter-spacing:2px;
 }
 
 /* FOOTER */
 
 footer {
-  background:#080808;
+  background:#050505;
   color:white;
   min-height:120px;
   padding:35px 7%;
@@ -293,13 +503,11 @@ footer {
 }
 
 .footer-logo {
-  font-family:'Manrope',sans-serif;
-  font-size:25px;
-  font-weight:800;
+  font:800 25px 'Manrope',sans-serif;
   letter-spacing:-2px;
 }
 
-.footer-logo span { color:var(--red); }
+.footer-logo span {color:var(--red);}
 
 footer p {
   font-size:9px;
@@ -310,41 +518,20 @@ footer p {
 /* MOBILE */
 
 @media(max-width:768px) {
-
   header {
     height:75px;
     padding:0 6%;
   }
 
-  .logo { font-size:27px; }
+  .logo {font-size:27px;}
+  nav {gap:17px;}
+  nav a {font-size:8px;letter-spacing:1px;}
+  .header-right {display:none;}
 
-  nav { gap:17px; }
-
-  nav a {
-    font-size:8px;
-    letter-spacing:1px;
-  }
-
-  .header-right { display:none; }
-
-  .hero {
-    height:90vh;
-    min-height:600px;
-  }
-
-  .hero h1 {
-    font-size:clamp(65px,18vw,130px);
-  }
-
-  .hero-subtitle {
-    font-size:9px;
-    letter-spacing:4px;
-  }
-
-  .hero-small {
-    font-size:8px;
-    letter-spacing:3px;
-  }
+  .hero {height:90vh;min-height:600px;}
+  .hero h1 {font-size:clamp(65px,18vw,130px);}
+  .hero-subtitle {font-size:9px;letter-spacing:4px;}
+  .hero-small {font-size:8px;letter-spacing:3px;}
 
   .hero-bottom {
     left:6%;
@@ -353,28 +540,51 @@ footer p {
     font-size:7px;
   }
 
-  .intro { padding:85px 7%; }
-
+  .intro {padding:85px 7%;}
   .intro-content {
     grid-template-columns:1fr;
     gap:35px;
     margin-top:35px;
   }
 
-  .intro h2 {
-    font-size:53px;
-    letter-spacing:-3px;
+  .intro h2 {font-size:53px;letter-spacing:-3px;}
+
+  .feature {grid-template-columns:1fr;}
+  .feature-photo {min-height:330px;}
+  .feature-content {padding:65px 8%;}
+  .feature-content h2 {font-size:58px;margin:40px 0;}
+
+  .gallery {padding:85px 6%;}
+  .gallery-heading {
+    display:block;
+    margin:35px 0 40px;
   }
+  .gallery-heading p {margin-top:25px;}
+  .gallery-grid {gap:10px;}
+  .gallery-item.tall {aspect-ratio:.75/1;}
+  .gallery-item {aspect-ratio:1/1;}
+  .gallery-footer {font-size:7px;}
 
-  .feature { grid-template-columns:1fr; }
-
-  .feature-photo { min-height:330px; }
-
-  .feature-content { padding:65px 8%; }
-
-  .feature-content h2 {
-    font-size:58px;
-    margin:40px 0;
+  .contact {padding:85px 7% 65px;}
+  .contact-heading {
+    display:block;
+    padding-bottom:45px;
+  }
+  .contact-heading p {margin-top:25px;}
+  .contact-content {
+    grid-template-columns:1fr;
+    gap:45px;
+    padding:45px 0;
+  }
+  .contact-message {font-size:52px;}
+  .contact-row {
+    grid-template-columns:85px 1fr;
+    gap:10px;
+  }
+  .contact-bottom {
+    flex-wrap:wrap;
+    gap:15px;
+    font-size:7px;
   }
 
   footer {
@@ -382,13 +592,12 @@ footer p {
     flex-wrap:wrap;
     gap:20px;
   }
-
-  footer p { font-size:7px; }
+  footer p {font-size:7px;}
 }
 
 @media(max-width:400px) {
-  nav { gap:12px; }
-  nav a { font-size:7px; }
+  nav {gap:12px;}
+  nav a {font-size:7px;}
 }
 </style>
 </head>
@@ -396,12 +605,12 @@ footer p {
 <body>
 
 <header>
-  <a href="index.html" class="logo">F<span>.</span></a>
+  <a href="#home" class="logo">F<span>.</span></a>
 
   <nav>
-    <a href="index.html">HOME</a>
-    <a href="gallery.html">GALLERY</a>
-    <a href="contact.html">CONTACT</a>
+    <a href="#home" class="active">HOME</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#contact">CONTACT</a>
   </nav>
 
   <div class="header-right">COFFEE · PEOPLE · MOMENTS</div>
@@ -409,95 +618,239 @@ footer p {
 
 <main>
 
-  <section class="hero">
+<!-- HOME -->
 
-    <div class="hero-bg"></div>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
 
-    <div class="hero-content">
-      <div class="hero-small">
-        <span>●</span> INDEPENDENT COFFEE CULTURE
-      </div>
-
-      <h1>FABRICA<span>.</span></h1>
-
-      <div class="hero-subtitle">
-        BEYOND THE ORDINARY.
-      </div>
+  <div class="hero-content">
+    <div class="hero-small">
+      <span>●</span> INDEPENDENT COFFEE CULTURE
     </div>
 
-    <div class="hero-bottom">
-      <span>SCROLL TO EXPLORE</span>
-      <span>SÖKE · AYDIN</span>
-    </div>
+    <h1>FABRICA<span>.</span></h1>
 
-  </section>
+    <div class="hero-subtitle">BEYOND THE ORDINARY.</div>
+  </div>
 
-  <section class="intro">
+  <div class="hero-bottom">
+    <span>SCROLL TO EXPLORE</span>
+    <span>SÖKE · AYDIN</span>
+  </div>
+</section>
 
-    <div class="section-label">
-      01 — THE FABRICA EXPERIENCE
-    </div>
+<section class="intro">
+  <div class="section-label">01 — THE FABRICA EXPERIENCE</div>
 
-    <div class="intro-content">
+  <div class="intro-content">
+    <h2>
+      Not just a place.<br>
+      <em>A state of mind.</em>
+    </h2>
 
-      <h2>
-        Not just a place.<br>
-        <em>A state of mind.</em>
-      </h2>
+    <div class="intro-text">
+      <p>
+        Good coffee. Thoughtful details.
+        A space to pause, connect and
+        experience the everyday differently.
+      </p>
 
-      <div class="intro-text">
-        <p>
-          Good coffee. Thoughtful details.
-          A space to pause, connect and
-          experience the everyday differently.
-        </p>
-
-        <a href="gallery.html" class="text-link">
-          EXPLORE THE GALLERY <span>↗</span>
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="feature">
-
-    <div class="feature-photo"></div>
-
-    <div class="feature-content">
-
-      <div class="section-label">
-        02 — A DIFFERENT PERSPECTIVE
-      </div>
-
-      <h2>
-        MAKE ROOM<br>
-        FOR <em>GOOD</em><br>
-        THINGS<span>.</span>
-      </h2>
-
-      <a href="contact.html" class="outline-link">
-        FIND FABRICA ↗
+      <a href="#gallery" class="text-link">
+        EXPLORE THE GALLERY <span>↗</span>
       </a>
+    </div>
+  </div>
+</section>
 
+<section class="feature">
+  <div class="feature-photo"></div>
+
+  <div class="feature-content">
+    <div class="section-label">02 — A DIFFERENT PERSPECTIVE</div>
+
+    <h2>
+      MAKE ROOM<br>
+      FOR <em>GOOD</em><br>
+      THINGS<span>.</span>
+    </h2>
+
+    <a href="#contact" class="outline-link">FIND FABRICA ↗</a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+  <div class="section-label">03 — A LOOK INSIDE</div>
+
+  <div class="gallery-heading">
+    <h2>THE<br>GALLERY<span>.</span></h2>
+    <p>
+      Spaces, details and moments.<br>
+      A little glimpse into Fabrica.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <button class="gallery-item tall" onclick="openPhoto(this)">
+      <img src="images/gallery-01.jpg" alt="Fabrica interior">
+      <span class="photo-label">01 / SPACE</span>
+    </button>
+
+    <button class="gallery-item" onclick="openPhoto(this)">
+      <img src="images/gallery-02.jpg" alt="Coffee preparation">
+      <span class="photo-label">02 / CRAFT</span>
+    </button>
+
+    <button class="gallery-item" onclick="openPhoto(this)">
+      <img src="images/gallery-03.jpg" alt="Coffee detail">
+      <span class="photo-label">03 / COFFEE</span>
+    </button>
+
+    <button class="gallery-item" onclick="openPhoto(this)">
+      <img src="images/gallery-04.jpg" alt="Cafe details">
+      <span class="photo-label">04 / DETAILS</span>
+    </button>
+
+    <button class="gallery-item" onclick="openPhoto(this)">
+      <img src="images/gallery-05.jpg" alt="Cafe atmosphere">
+      <span class="photo-label">05 / PEOPLE</span>
+    </button>
+
+    <button class="gallery-item" onclick="openPhoto(this)">
+      <img src="images/gallery-06.jpg" alt="Coffee moments">
+      <span class="photo-label">06 / MOMENTS</span>
+    </button>
+
+  </div>
+
+  <div class="gallery-footer">
+    <span>THE FABRICA EXPERIENCE</span>
+    <span>SCROLL, LOOK, FEEL.</span>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="section-label">04 — COME SAY HELLO</div>
+
+  <div class="contact-heading">
+    <h2>LET'S<br><em>CONNECT</em><span>.</span></h2>
+
+    <p>
+      Good conversations start<br>
+      with a good place.
+    </p>
+  </div>
+
+  <div class="contact-content">
+
+    <div class="contact-message">
+      YOUR TABLE<br>
+      IS <em>WAITING</em><span>.</span>
     </div>
 
-  </section>
+    <div class="contact-details">
+
+      <div class="contact-row">
+        <div class="contact-label">01 / VISIT</div>
+        <div>
+          <h3>Find us.</h3>
+          <p>Fabrica Coffee Company</p>
+          <p>Adres bilgisini buraya ekle.</p>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-label">02 / FOLLOW</div>
+        <div>
+          <h3>Stay in touch.</h3>
+          <p>
+            <a href="#" target="_blank">Instagram ↗</a>
+          </p>
+          <p>Instagram bağlantısını güncelle.</p>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-label">03 / HOURS</div>
+        <div>
+          <h3>When we're here.</h3>
+          <p>Güncel çalışma saatlerini buraya ekle.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="contact-bottom">
+    <span>FABRICA COFFEE COMPANY</span>
+    <span>SÖKE · AYDIN</span>
+    <span>BEYOND THE ORDINARY.</span>
+  </div>
+
+</section>
 
 </main>
 
 <footer>
-
-  <a href="index.html" class="footer-logo">
-    FABRICA<span>.</span>
-  </a>
-
+  <a href="#home" class="footer-logo">FABRICA<span>.</span></a>
   <p>BEYOND THE ORDINARY.</p>
-
   <p>© FABRICA COFFEE COMPANY</p>
-
 </footer>
+
+<!-- PHOTO LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closePhoto(event)">
+  <button class="lightbox-close" onclick="closePhoto(event)">×</button>
+  <img id="lightbox-image" src="" alt="Gallery image">
+</div>
+
+<script>
+function openPhoto(button) {
+  const image = button.querySelector("img");
+  document.getElementById("lightbox-image").src = image.src;
+  document.getElementById("lightbox").classList.add("open");
+}
+
+function closePhoto(event) {
+  if (
+    event.target.id === "lightbox" ||
+    event.target.classList.contains("lightbox-close")
+  ) {
+    document.getElementById("lightbox").classList.remove("open");
+  }
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    document.getElementById("lightbox").classList.remove("open");
+  }
+});
+
+const sections = document.querySelectorAll("#home, #gallery, #contact");
+const navLinks = document.querySelectorAll("nav a");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + entry.target.id
+        );
+      });
+    }
+  });
+}, { threshold: 0.35 });
+
+sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
